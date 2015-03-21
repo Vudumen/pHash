@@ -332,7 +332,7 @@ int NextFrames(VFInfo *st_info, CImgList<uint8_t> *pFrameList)
 
 int GetNumberStreams(const char *file)
 {
-	 AVFormatContext *pFormatCtx;
+	 AVFormatContext *pFormatCtx = NULL;
 	 av_log_set_level(AV_LOG_QUIET);
 	 av_register_all();
 	// Open video file
@@ -350,7 +350,7 @@ int GetNumberStreams(const char *file)
 long GetNumberVideoFrames(const char *file)
 {
     long nb_frames = 0L;
-	AVFormatContext *pFormatCtx;
+	AVFormatContext *pFormatCtx = NULL;
     av_log_set_level(AV_LOG_QUIET);
 	av_register_all();
 	// Open video file
@@ -393,7 +393,7 @@ long GetNumberVideoFrames(const char *file)
 float fps(const char *filename)
 {
         float result = 0;
-	AVFormatContext *pFormatCtx;
+	AVFormatContext *pFormatCtx = NULL;
 	
 	// Open video file
 	if (av_open_input_file(&pFormatCtx, filename, NULL, 0, NULL))
